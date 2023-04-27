@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GROUP 4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+      #logo {
+        display: block;
+        width: 150px;
+        height: 150px;
+        background-image: url("logo.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: seesaw 2s infinite;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+      }
+      
+      @keyframes seesaw {
+        0% {
+          transform: rotateZ(0deg);
+        }
+        50% {
+          transform: rotateZ(10deg);
+        }
+        100% {
+          transform: rotateZ(0deg);
+        }
+      }
+      
+      body {
+        background: linear-gradient(to bottom, #A4D0A4, #F7E1AE);
+        position: relative;
+      }
+      
+      #no {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        animation: rise 2s;
+      }
+      
+      #arduino {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+      }
+      
+      @keyframes rise {
+        0% {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      #cry {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  animation: rise 2s;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+    </style>
+  </head>
+  <body>
+  <div class="container">
+  <div class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-md-4 text-center">
+      <div id="logo" class="mx-auto"></div>
+      <form id="password-form">
+        <div class="form-group mt-4">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter password">
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<img id="no" src="no.png" alt="no">
+<img id="cry" src="cry.png" alt="no">
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    // Add event listener to the form submit event
+    $('#password-form').on('submit', function(e) {
+      e.preventDefault(); // Prevent the default form submission
+      var password = $('#password').val(); // Get the entered password
+      if (password === 'Group4') {
+        // Redirect the user to the specified URL
+        window.location.href = 'https://drive.google.com/drive/folders/1jR-hPEJ2VIPIuyWL2sQi0PXjP5uRWuDt?usp=share_link';
+      } else {
+        // Display an error message or show the 'no' or 'cry' image
+        alert('Incorrect password. Please try again.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
